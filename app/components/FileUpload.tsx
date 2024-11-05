@@ -8,6 +8,7 @@ interface OptionalParams {
   param2: string;
   param3: string;
   param4: string;
+  param5: string;
 }
 
 const FileUpload = () => {
@@ -22,6 +23,7 @@ const FileUpload = () => {
     param2: "",
     param3: "",
     param4: "",
+    param5: "",
   });
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
@@ -46,6 +48,7 @@ const FileUpload = () => {
       param2: "",
       param3: "",
       param4: "",
+      param5: "",
     });
     setShowDrawer(false);
     setMaxWeight(0);
@@ -97,7 +100,7 @@ const FileUpload = () => {
     <>
       {/* Bottom Drawer */}
       <div
-        className={`fixed bottom-0 left-0 right-0 z-40 w-full bg-white shadow-lg transform transition-transform duration-300 rounded-t-xl ${
+        className={`fixed bottom-0 left-0 right-0 z-40 w-full py-8 bg-slate-200 shadow-lg transform transition-transform duration-300 rounded-t-xl ${
           showDrawer ? "translate-y-0" : "translate-y-full"
         }`}
       >
@@ -120,10 +123,12 @@ const FileUpload = () => {
             MAX LOAD OF {maxWeight}KG
             {showOptParams && (
               <div className="text-sm mt-2">
-                <div>Parameter 1: {optionalParams.param1}</div>
-                <div>Parameter 2: {optionalParams.param2}</div>
-                <div>Parameter 3: {optionalParams.param3}</div>
-                <div>Parameter 4: {optionalParams.param4}</div>
+                <div>
+                  With given paramters
+                  {/* Parameter 1: {optionalParams.param1}Parameter 2:{" "}
+                  {optionalParams.param2}Parameter 3: {optionalParams.param3}
+                  Parameter 4: {optionalParams.param4} */}
+                </div>
               </div>
             )}
           </div>
@@ -202,7 +207,9 @@ const FileUpload = () => {
               <div className="bg-slate-50 p-4 rounded-lg mb-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label className="text-sm text-gray-600">Parameter 1</label>
+                    <label className="text-sm text-gray-600">
+                      Length of spaghetti
+                    </label>
                     <input
                       type="text"
                       value={optionalParams.param1}
@@ -210,11 +217,13 @@ const FileUpload = () => {
                         handleParamChange("param1", e.target.value)
                       }
                       className="w-full p-2 border rounded-md"
-                      placeholder="Enter param 1"
+                      placeholder=""
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm text-gray-600">Parameter 2</label>
+                    <label className="text-sm text-gray-600">
+                      Diameter of spaghetti strands
+                    </label>
                     <input
                       type="text"
                       value={optionalParams.param2}
@@ -222,11 +231,13 @@ const FileUpload = () => {
                         handleParamChange("param2", e.target.value)
                       }
                       className="w-full p-2 border rounded-md"
-                      placeholder="Enter param 2"
+                      placeholder=""
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm text-gray-600">Parameter 3</label>
+                    <label className="text-sm text-gray-600">
+                      Cross sectional
+                    </label>
                     <input
                       type="text"
                       value={optionalParams.param3}
@@ -234,11 +245,11 @@ const FileUpload = () => {
                         handleParamChange("param3", e.target.value)
                       }
                       className="w-full p-2 border rounded-md"
-                      placeholder="Enter param 3"
+                      placeholder=""
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm text-gray-600">Parameter 4</label>
+                    <label className="text-sm text-gray-600">Density</label>
                     <input
                       type="text"
                       value={optionalParams.param4}
@@ -246,7 +257,21 @@ const FileUpload = () => {
                         handleParamChange("param4", e.target.value)
                       }
                       className="w-full p-2 border rounded-md"
-                      placeholder="Enter param 4"
+                      placeholder=""
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm text-gray-600">
+                      Yield strength
+                    </label>
+                    <input
+                      type="text"
+                      value={optionalParams.param4}
+                      onChange={(e) =>
+                        handleParamChange("param5", e.target.value)
+                      }
+                      className="w-full p-2 border rounded-md"
+                      placeholder=""
                     />
                   </div>
                 </div>
